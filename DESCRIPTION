@@ -1,7 +1,7 @@
 Package: TemporalVisualisation
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.0
+Version: 1.1.0
 Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
@@ -11,3 +11,9 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/DylanCarbone/TemporalVisualisation
 BugReports: https://github.com/DylanCarbone/TemporalVisualisation/issues
+RoxygenNote: 7.1.2
+Imports: 
+    chron,
+    tibble
+Depends: 
+    R (>= 2.10)
