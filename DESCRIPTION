@@ -4,9 +4,8 @@ Title: This package creats time series plots of animals moving across habatits u
 Version: 1.1.0
 Author: Dylan Carbone
 Maintainer: Dylan Carbone <dylancarbone25@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: The following package allows the user to visualise changes in the distributions of urban wildife with time of day and day of survey. This package uses data collected during cameratrap surveys conducted by London HogWatch at ZSL.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/DylanCarbone/TemporalVisualisation

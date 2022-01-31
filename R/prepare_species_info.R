@@ -27,7 +27,7 @@ prepare_species_info <- function(){
   # Prepare human information
   human_info <- "Members of public can deter wildife from foraging and it is therefore important to study human spatial usage of the park."
 
-  deer_info <- "test"
+  deer_info <- "Fallow deer (Dama dama) were introduced to the UK and deliberately released by the Normans over 1000 years ago. However, this occurred so long ago that they are no-longer considered invasive. Since then, the deer have expanded their range to broadleaved woodland, grassland, and parks across the UK. Fallow deer are famous for their rutting, which occurs in October. During this period, male bucks establish territory for mating, called rutting stands, by marking soil with urine and hoof prints. They attract female doe with deep belches. This can lead to violent clashes between bucks as competition occurs for opportunities to mate with groups of doe. Unlike the reeves muntjac, fallow deer compete with other males using their large antlers. Between June and July, the female doe will each birth a single fawn. Fallow deer graze on grasses and herbs, and browse on broadleaf tree saplings. They have no natural predators, and because of this populations are occasionally culled to prevent them disrupting them the regeneration of woodland."
 
   # Prepare information for remaining species
   other_info <- "No information currently included"

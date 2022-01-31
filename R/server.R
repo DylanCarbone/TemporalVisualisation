@@ -19,18 +19,26 @@ server <- function(input, output) {
   # Source all the species information in a list
   all_info <- prepare_species_info()
 
+  # Create a vector for the species with icons
   species_with_icons = c("badger", "fox", "muntjac", "hedgehog", "dog", "human", "deer")
+
+  # Create a vector for all species
   all_species = unique(c(all_data$species))
 
+  # Create an empty species vector with paths to images
   species_paths = c()
 
+  # For each value in the species vector
   for (i in 1:length(all_species)){
+
+  # For each value in the vector print the name if there is an icon and info section and if not, print other
   species_paths[i] <- ifelse(all_species[i] %in% species_with_icons, paste0(all_species[i]), paste0("other"))
   }
 
+  # Pair the species with their paths in a dataframe
   species_icon_paths <- data.frame(species = all_species, species_paths)
 
-  # Change servey data according to ui inputs
+  # Change survey data according to ui inputs
   data_input <- reactive({
 
     all_data %>%
@@ -60,14 +68,14 @@ server <- function(input, output) {
       summarize(total_count = n())
   })
 
-  #Obtain icon path and names of species with info
+  # Determine whether species has icon and info section
   icon_path <-  reactive({
     species_icon_paths %>%
       filter(species == input$species)
 
   })
 
-  # Adjust starting location dataframe with species name input
+  # Adjust starting location with species name input
   start_locations <- reactive({
     coords %>%
       filter(location == input$park)
@@ -90,13 +98,14 @@ server <- function(input, output) {
                                   iconHeight =  ifelse(data_input()$total_count < 20, 20, ifelse(data_input()$total_count > 100, 100, data_input()$total_count)),
                                   iconWidth =  ifelse(data_input()$total_count < 20, 20, ifelse(data_input()$total_count > 100, 100, data_input()$total_count))),
 
-                 # Set latitide and longitude for points
+                 # Set latitude and longitude for points
                  lng = data_input()$long, lat = data_input()$lat,
 
                  # Create marker popups
                  popup = paste0("Here there was ",
                                 data_input()$total_count, " ",
                                 data_input()$species, " sightings")))
+
   # Extract description from species information list
   output$info = renderText({
     paste0(all_info[icon_path()$species_paths])
