@@ -1,9 +1,9 @@
 Package: TemporalVisualisation
 Type: Package
-Title: What the Package Does (Title Case)
+Title: This package creats time series plots of animals moving across habatits using cameratrap sightings.
 Version: 1.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Dylan Carbone
+Maintainer: Dylan Carbone <dylancarbone25@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
@@ -13,7 +13,11 @@ URL: https://github.com/DylanCarbone/TemporalVisualisation
 BugReports: https://github.com/DylanCarbone/TemporalVisualisation/issues
 RoxygenNote: 7.1.2
 Imports: 
-    chron,
+    dplyr,
+    leaflet,
+    lubridate,
+    shiny,
+    shinydashboard,
     tibble
 Depends: 
     R (>= 2.10)
