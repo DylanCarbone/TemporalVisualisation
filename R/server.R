@@ -19,6 +19,17 @@ server <- function(input, output) {
   # Source all the species information in a list
   all_info <- prepare_species_info()
 
+  species_with_icons = c("badger", "fox", "muntjac", "hedgehog", "dog", "human", "deer")
+  all_species = unique(c(all_data$species))
+
+  species_paths = c()
+
+  for (i in 1:length(all_species)){
+  species_paths[i] <- ifelse(all_species[i] %in% species_with_icons, paste0(all_species[i]), paste0("other"))
+  }
+
+  species_icon_paths <- data.frame(species = all_species, species_paths)
+
   # Change servey data according to ui inputs
   data_input <- reactive({
 
@@ -46,13 +57,14 @@ server <- function(input, output) {
       group_by(lat, long, species) %>%
 
       # Summarise all counts
-      summarize(total_count = n()) %>%
+      summarize(total_count = n())
+  })
 
-      # Add a new column with icon paths
-      mutate(icon_path = paste0("images/", ifelse(input$species %in% c("badger", "fox", "muntjac", "hedgehog", "dog") == T, species, "other"), ".png")) %>%
+  #Obtain icon path and names of species with info
+  icon_path <-  reactive({
+    species_icon_paths %>%
+      filter(species == input$species)
 
-      # Add new column with species names which correspond to species information in list
-      mutate(species_info = paste0(ifelse(input$species %in% c("badger", "fox", "muntjac", "hedgehog", "dog") == T, species, "other")))
   })
 
   # Adjust starting location dataframe with species name input
@@ -74,7 +86,7 @@ server <- function(input, output) {
 
       # Add icons to map
       # Construct icons
-      addMarkers(icon  = makeIcon(data_input()$icon_path,
+      addMarkers(icon  = makeIcon(open_icon(icon_path()$species_paths),
                                   iconHeight =  ifelse(data_input()$total_count < 20, 20, ifelse(data_input()$total_count > 100, 100, data_input()$total_count)),
                                   iconWidth =  ifelse(data_input()$total_count < 20, 20, ifelse(data_input()$total_count > 100, 100, data_input()$total_count))),
 
@@ -87,6 +99,6 @@ server <- function(input, output) {
                                 data_input()$species, " sightings")))
   # Extract description from species information list
   output$info = renderText({
-    paste0(all_info[unique(data_input()$species_info)])
+    paste0(all_info[icon_path()$species_paths])
   })
 }
