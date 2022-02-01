@@ -5,7 +5,7 @@ This package allows you to visualise the the temporal variation in the distribut
 To open the shiny application, please run the following:
 
 # Install the TemporalVisualisation package from github
-devtools::install_github("IBAHCM/DylanCarboneBCI")
+devtools::install_github("DylanCarbone/TemporalVisualisation")
 
 # Load the package
 library(TemporalVisualisation)
