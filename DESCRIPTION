@@ -1,7 +1,7 @@
 Package: TemporalVisualisation
 Type: Package
 Title: This package creats time series plots of animals moving across habatits using cameratrap sightings.
-Version: 1.1.0
+Version: 2.2.1
 Author: Dylan Carbone
 Maintainer: Dylan Carbone <dylancarbone25@gmail.com>
 Description: The following package allows the user to visualise changes in the distributions of urban wildife with time of day and day of survey. This package uses data collected during cameratrap surveys conducted by London HogWatch at ZSL.
