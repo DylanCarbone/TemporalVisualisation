@@ -4,10 +4,14 @@ This package allows you to visualise the the temporal variation in the distribut
 
 To open the shiny application, please run the following:
 ```
-# Install the TemporalVisualisation package from github
-devtools::install_github("DylanCarbone/TemporalVisualisation")
+# Install devtools if you do not currently have it
+if (!require(devtools)){
+  install.packages("devtools")}
 
-# Load the package
+# Install the TemporalVisualisation package from github
+# devtools::install_github("DylanCarbone/TemporalVisualisation")
+
+# Load the package - Note this is necessary to load the stored cameratrap survey data
 library(TemporalVisualisation)
 
 # Run the app using a custom function
