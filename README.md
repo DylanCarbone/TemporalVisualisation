@@ -9,7 +9,7 @@ if (!require(devtools)){
   install.packages("devtools")}
 
 # Install the TemporalVisualisation package from github
-# devtools::install_github("DylanCarbone/TemporalVisualisation")
+devtools::install_github("DylanCarbone/TemporalVisualisation")
 
 # Load the package - Note this is necessary to load the stored cameratrap survey data
 library(TemporalVisualisation)
